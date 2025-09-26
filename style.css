@@ -1,0 +1,14 @@
+*{
+    color: blue;
+    margin: 10px;
+    font: 14px Tahoma;
+    background-color: azure;
+}
+
+button.subpage1{
+    color: black;
+}
+
+button.subpage2{
+    color: aqua;
+}
