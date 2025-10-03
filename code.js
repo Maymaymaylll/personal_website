@@ -2,13 +2,18 @@
 var title = document.querySelector("h1");
 title.innerHTML = "This is a new title from JavaScript";
 
-var button = document.querySelector("#press_me");
-
-button.addEventListener("click", myfunction);
-
-function myfunction(){
-    alert("You clicked the button!");
+var pressbutton = document.querySelector("#press_me");
+pressbutton.addEventListener("click", myfunction1);
+function myfunction1(){
+    alert("You pressed the button!");
 }
+
+var aboutbutton = document.querySelector("#about_me");
+aboutbutton.addEventListener("click", myfunction2);
+function myfunction2(){
+    alert("Thank you for clicking!");
+}
+
 
 var mynode =document.createElement("div");
 mynode.id = "work1_intro";
