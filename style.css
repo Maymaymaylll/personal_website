@@ -12,3 +12,36 @@ button.subpage1{
 button.subpage2{
     color: aqua;
 }
+
+.box{
+    display: flex;
+}
+
+.box div{
+    border: solid 1px black; 
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 1px;
+}
+
+.grid-item1{
+    background: lightgoldenrodyellow;
+    border: solid 1px black;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.grid-item2{
+    background: lightgoldenrodyellow;
+    border: solid 1px black;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
