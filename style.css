@@ -5,8 +5,16 @@
     background-color: azure;
 }
 
+
+button{
+    border: solid 1px black;
+    background-color:cadetblue;
+    color: aqua;
+}
+
 button.subpage1{
-    color: black;
+    border: solid 1px black;
+    background-color:cadetblue;
 }
 
 button.subpage2{
