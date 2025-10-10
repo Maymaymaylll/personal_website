@@ -2,19 +2,16 @@
     color: blue;
     margin: 10px;
     font: 14px Tahoma;
-    background-color: azure;
 }
 
 
 button{
     border: solid 1px black;
-    background-color:cadetblue;
     color: aqua;
 }
 
 button.subpage1{
     border: solid 1px black;
-    background-color:cadetblue;
 }
 
 button.subpage2{
@@ -60,4 +57,79 @@ button.subpage2{
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
+}
+
+header, section{
+    margin: 2em auto;
+    width: min(75em, 100%);
+    background-color: antiquewhite;
+    padding: min(2em, 15%);
+    border-radius: 1em;
+}
+
+nav{
+    margin: 1em auto 1em auto;
+    width: min(1000px, 100%);
+    font-size: 1.5em;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 2em;
+}
+
+nav p:first-child{
+    margin-right: auto;
+    font-size: 1.5em;
+}
+
+button.subpage1{
+    border-radius: .3em;
+    font-size: 1em;
+    color: black;
+    background-color: white;
+}
+
+button.subpage2{
+    border-radius: .3em;
+    font-size: 1em;
+    color: black;
+    background-color: white;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3em;
+}
+
+header img{
+    max-width: 20%;
+    border-radius: 1em;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+h1{
+    font-size: 2em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.intro_button{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: burlywood;
+    padding: .75em 1em;
+    margin-top: 0em;
+    border-radius: .5em;
+    font-weight: 600;
+}
+
+.text-container{
+    flex:0 1 30em;
 }
