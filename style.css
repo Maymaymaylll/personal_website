@@ -1,29 +1,29 @@
-*{
-    color: blue;
+* {
+    color: black;
     margin: 10px;
     font: 14px Tahoma;
 }
 
 
-button{
+button {
     border: solid 1px black;
     color: aqua;
 }
 
-button.subpage1{
+button.subpage1 {
     border: solid 1px black;
 }
 
-button.subpage2{
+button.subpage2 {
     color: aqua;
 }
 
-.box{
+.box {
     display: flex;
 }
 
-.box div{
-    border: solid 1px black; 
+.box div {
+    border: solid 1px black;
 }
 
 .grid-container {
@@ -33,7 +33,7 @@ button.subpage2{
     grid-gap: 1px;
 }
 
-.grid-item1{
+.grid-item1 {
     background: lightgoldenrodyellow;
     border: solid 1px black;
     grid-column-start: 1;
@@ -42,7 +42,7 @@ button.subpage2{
     grid-row-end: 1;
 }
 
-.grid-item2{
+.grid-item2 {
     background: lightgoldenrodyellow;
     border: solid 1px black;
     grid-column-start: 1;
@@ -50,7 +50,8 @@ button.subpage2{
     grid-row-start: 2;
     grid-row-end: 2;
 }
-.grid-item3{
+
+.grid-item3 {
     background: lightgoldenrodyellow;
     border: solid 1px black;
     grid-column-start: 2;
@@ -59,67 +60,75 @@ button.subpage2{
     grid-row-end: 1;
 }
 
-header, section{
+header,
+section {
     margin: 2em auto;
     width: min(75em, 100%);
     background-color: antiquewhite;
     padding: min(2em, 15%);
     border-radius: 1em;
+
 }
 
-nav{
+nav {
     margin: 1em auto 1em auto;
     width: min(1000px, 100%);
     font-size: 1.5em;
 }
 
-nav ul{
+nav ul {
     display: flex;
     align-items: center;
     list-style-type: none;
     gap: 2em;
 }
 
-nav p:first-child{
+nav p:first-child {
     margin-right: auto;
     font-size: 1.5em;
 }
 
-button.subpage1{
+button.subpage1 {
     border-radius: .3em;
     font-size: 1em;
     color: black;
     background-color: white;
 }
 
-button.subpage2{
+button.subpage2 {
     border-radius: .3em;
     font-size: 1em;
     color: black;
     background-color: white;
 }
 
-.flex-container{
+.flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 3em;
+    max-width: 1060px;
+    margin: auto;
+    background: antiquewhite;
+    padding: 20px;
+    border-radius: 8px;
+
 }
 
-header img{
-    max-width: 20%;
+header img {
+    max-width: 50%;
     border-radius: 1em;
     object-fit: cover;
     object-position: bottom;
 }
 
-h1{
+h1 {
     font-size: 2em;
     font-family: 'Courier New', Courier, monospace;
 }
 
-.intro_button{
+.intro_button {
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -130,6 +139,100 @@ h1{
     font-weight: 600;
 }
 
-.text-container{
-    flex:0 1 30em;
+.text-container {
+    flex: 0 1 30em;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f9;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1060px;
+    margin: auto;
+    background: antiquewhite;
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #333;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-size: 10px;
+}
+
+.bubble {
+    opacity: 0.8;
+    stroke: #333;
+    stroke-width: 1px;
+    transition: opacity 0.2s, stroke-width 0.2s;
+}
+
+.bubble:hover {
+    opacity: 1;
+    stroke-width: 3px;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.legend-item {
+    font-size: 12px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    border: 1px solid #333;
+}
+
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
 }

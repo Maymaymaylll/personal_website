@@ -1,6 +1,6 @@
 
-var title = document.querySelector("h1");
-title.innerHTML = "This is a new title from JavaScript";
+//var title = document.querySelector("h1");
+//title.innerHTML = "This is a new title from JavaScript";
 
 var pressbutton = document.querySelector("#press_me");
 pressbutton.addEventListener("click", myfunction1);
@@ -12,6 +12,12 @@ var aboutbutton = document.querySelector("#about_me");
 aboutbutton.addEventListener("click", myfunction2);
 function myfunction2(){
     alert("Thank you for clicking!");
+}
+
+var aboutbutton = document.querySelector("#port");
+aboutbutton.addEventListener("click", myfunction3);
+function myfunction3(){
+    alert("This is my portfolio");
 }
 
 
