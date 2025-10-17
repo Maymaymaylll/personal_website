@@ -1,3 +1,8 @@
+html {
+    background-color: rgb(239, 218, 198);
+    scroll-behavior: smooth;
+}
+
 * {
     color: black;
     margin: 10px;
@@ -5,26 +10,13 @@
 }
 
 
-button {
-    border: solid 1px black;
-    color: aqua;
-}
 
-button.subpage1 {
-    border: solid 1px black;
-}
-
-button.subpage2 {
-    color: aqua;
-}
 
 .box {
     display: flex;
 }
 
-.box div {
-    border: solid 1px black;
-}
+
 
 .grid-container {
     display: grid;
@@ -88,18 +80,26 @@ nav p:first-child {
     font-size: 1.5em;
 }
 
-button.subpage1 {
-    border-radius: .3em;
+.subpage {
+    border: 0;
+    border-radius: .8em;
     font-size: 1em;
     color: black;
-    background-color: white;
+    background-color: rgb(230, 207, 182);
+    text-decoration: none;
+    padding: .5em 1em;
 }
 
-button.subpage2 {
-    border-radius: .3em;
-    font-size: 1em;
-    color: black;
-    background-color: white;
+
+
+.back {
+    font-size: large;
+    color: white;
+    background-color: burlywood;
+    padding: .75em 1em;
+    border-radius: .5em;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .flex-container {
@@ -117,7 +117,7 @@ button.subpage2 {
 }
 
 header img {
-    max-width: 50%;
+    max-width: 30%;
     border-radius: 1em;
     object-fit: cover;
     object-position: bottom;
@@ -126,6 +126,7 @@ header img {
 h1 {
     font-size: 2em;
     font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 2em;
 }
 
 .intro_button {
@@ -134,19 +135,19 @@ h1 {
     color: white;
     background-color: burlywood;
     padding: .75em 1em;
-    margin-top: 0em;
+    margin-top: 3em;
     border-radius: .5em;
     font-weight: 600;
 }
 
 .text-container {
-    flex: 0 1 30em;
+    flex: 0 1 40em;
 }
 
 body {
     font-family: sans-serif;
     margin: 20px;
-    background-color: #f4f4f9;
+
 }
 
 .container {
@@ -232,7 +233,54 @@ h1 {
 }
 
 h2 {
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
     font-size: 2em;
     color: #333;
 }
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.node circle {
+    fill: #999;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 3px;
+}
+
+.node text {
+    font-family: sans-serif;
+    font: 12px sans-serif;
+    fill: #333;
+}
+
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+}
+
+h3 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+}
+
