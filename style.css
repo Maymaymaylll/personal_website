@@ -284,3 +284,200 @@ h3 {
     color: #333;
 }
 
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    color: #333;
+}
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+
+section#vis-graphdata {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* 使SVG居中 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 确保此区域内的字体一致 */
+}
+
+h4 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+}
+
+/* SVG 容器样式 */
+svg {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    display: block;
+    /* 移除额外空间 */
+    margin: 0 auto;
+    /* 居中 */
+    max-width: 100%;
+    /* 响应式 */
+    height: auto;
+    /* 响应式 */
+}
+
+/* 链接样式 */
+.d3-link {
+    /* 替代了原有的 .link 样式 */
+    stroke: #666;
+    stroke-opacity: 0.8;
+    stroke-width: 1.5px;
+}
+
+/* 节点圆形样式 */
+.d3-node circle {
+    /* 替代了原有的 .node circle 样式 */
+    stroke: #fff;
+    stroke-width: 1.5px;
+    cursor: pointer;
+}
+
+/* 节点文本样式 */
+.d3-node text {
+    /* 替代了原有的 .node text 样式 */
+    font-family: sans-serif;
+    font-size: 14px;
+    /* 增大节点文本 */
+    font-weight: bold;
+    pointer-events: none;
+    /* 确保文本不会干扰节点拖拽 */
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6), -1px -1px 0 rgba(255, 255, 255, 0.6),
+        1px -1px 0 rgba(255, 255, 255, 0.6), -1px 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* 链接标签文本样式 */
+.link-label text {
+    font-family: sans-serif;
+    font-size: 10px;
+    fill: #555;
+    text-anchor: middle;
+    /* 文本居中对齐 */
+    pointer-events: none;
+    /* 确保文本不会干扰拖拽 */
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), -1px -1px 0 rgba(255, 255, 255, 0.8),
+        1px -1px 0 rgba(255, 255, 255, 0.8), -1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+#vis-matrix {
+    margin: 20px auto;
+    max-width: fit-content;
+    /* 让容器根据内容调整宽度 */
+    overflow-x: auto;
+    /* 当表格过宽时，允许水平滚动 */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/* 表格通用样式 */
+table {
+    border-collapse: collapse;
+    /* 合并边框 */
+    width: auto;
+    /* 宽度自适应内容 */
+    margin: 0;
+    /* 移除默认外边距 */
+}
+
+/* 表头和数据单元格样式 */
+th,
+td {
+    border: 1px solid #dee2e6;
+    /* 边框颜色 */
+    padding: 10px 15px;
+    /* 内边距 */
+    text-align: center;
+    min-width: 70px;
+    /* 确保单元格有最小宽度 */
+    white-space: nowrap;
+    /* 防止文本换行 */
+    font-size: 0.95em;
+}
+
+/* 表头单元格的默认样式 */
+th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #495057;
+}
+
+/* 值为 1 的数据单元格高亮样式 */
+.highlight-one {
+    background-color: #ffeb3b;
+    /* 鲜黄色 */
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* 响应式设计：针对小屏幕设备 */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    #vis-matrix {
+        padding: 10px;
+    }
+
+    th,
+    td {
+        padding: 8px 10px;
+        min-width: 50px;
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    th,
+    td {
+        padding: 6px 8px;
+        min-width: 40px;
+        font-size: 0.8em;
+    }
+}
+
+.sub_title {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 1em;
+    color: #333;
+}
+
+h6 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+}
