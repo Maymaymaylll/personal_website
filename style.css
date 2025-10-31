@@ -482,159 +482,167 @@ h6 {
     color: #333;
 }
 
-section#vis-dotmap {
-    /* 目标 ID，现在直接作为地图的容器 */
+
+.container4 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    /* 确保内部 SVG 居中 */
-}
-
-#vis-dotmap svg {
-    /* 针对 #vis-dotmap 内部的 SVG 元素 */
-    display: block;
-    width: 100%;
+    flex-wrap: wrap;
     max-width: 1000px;
-    aspect-ratio: 2 / 1;
-    background-color: #e0f2f7;
-    /* 地图背景改成浅蓝色 */
-    margin: 0 auto;
-    /* 确保 SVG 在其父容器中居中 */
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+
 }
 
-/* 国家路径样式 - 更改为 f3edcb */
-.d3-map-country {
-    fill: #f3edcb;
-    /* 浅黄色填充 */
-    stroke: #a0a0a0;
-    /* 边框颜色 */
+h7 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+}
+
+#vis-dotmap {
+    width: 100%;
+    max-width: 960px;
+    /* 您可以根据需要调整最大宽度 */
+    margin: 20px auto;
+    /* 居中显示 */
+    position: relative;
+    /* 如果需要对图例进行更复杂的定位 */
+}
+
+/* 使SVG本身响应式，保持宽高比 */
+#vis-dotmap svg {
+    display: block;
+    /* 移除SVG下方可能出现的额外空间 */
+    width: 100%;
+    height: auto;
+    /* 保持宽高比 */
+}
+
+/* 国家路径样式 */
+.country {
+    stroke: #333;
+    /* 国家边框颜色 */
     stroke-width: 0.5px;
+    /* 国家边框宽度 */
+}
+
+/* 圆点样式 */
+.dot {
+    opacity: 0.7;
+    /* 圆点透明度 */
+}
+
+/* 图例背景框样式 */
+.legend-box {
+    fill: white;
+    /* 白色背景 */
+    stroke: black;
+    /* 黑色边框 */
+    stroke-width: 1px;
     /* 边框宽度 */
 }
 
-/* 点样式基类 */
-.d3-map-dot {
-    opacity: 0.7;
-    transition: fill 0.2s ease;
-}
-
-/* 根据类别定义点的颜色 */
-.d3-map-dot.d3-map-category-resident {
-    fill: #3498db;
-}
-
-/* 常住和探亲 - 蓝色 */
-.d3-map-dot.d3-map-category-academic {
-    fill: #27ae60;
-}
-
-/* 学业目的 - 绿色 */
-.d3-map-dot.d3-map-category-tourism {
-    fill: #e67e22;
-}
-
-/* 旅游 - 橙色 */
-
-/* 鼠标悬停时颜色变深 */
-.d3-map-dot.d3-map-category-resident:hover {
-    fill: #2980b9;
-}
-
-.d3-map-dot.d3-map-category-academic:hover {
-    fill: #219d52;
-}
-
-.d3-map-dot.d3-map-category-tourism:hover {
-    fill: #d35400;
-}
-
-/* 提示框 (Tooltip) 样式 */
-.d3-map-tooltip {
-    position: absolute;
-    text-align: center;
-    padding: 8px;
-    font: 12px sans-serif;
-    background: #333;
-    color: #fff;
-    border: 0px;
-    border-radius: 4px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s;
-    z-index: 1000;
-}
-
-/* 图例样式 */
-.d3-map-legend-group {
-    fill: white;
-}
-
-.d3-map-legend-group rect.d3-map-legend-background {
-    /* 图例背景矩形 */
-    fill: white;
-    /* 白底 */
-    stroke: black;
-    /* 黑边 */
-    stroke-width: 1px;
-    rx: 4px;
-    /* 圆角 */
-    ry: 4px;
-}
-
-.d3-map-legend-group text {
+/* 图例文本样式 */
+.legend-text {
+    font-family: sans-serif;
     font-size: 12px;
     fill: #333;
-    /* 确保图例文本不受全局 * 样式影响 */
-    margin: 0;
-    font-family: sans-serif;
 }
 
-/* 媒体查询：适配移动设备 */
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 1.8em;
-    }
-
-    section#vis-dotmap {
-        /* 目标 ID */
-        padding: 10px;
-        margin: 10px auto;
-    }
-
-    .d3-map-tooltip {
-        font-size: 10px;
-        padding: 6px;
-    }
-
-    .d3-map-legend-group {
-        /* 在小屏幕上调整图例位置 */
-        transform: translate(10px, 10px) !important;
-    }
-
-    .d3-map-legend-group text {
-        font-size: 10px;
-    }
-
-    .d3-map-legend-group rect {
-        /* 针对图例颜色方块 */
-        width: 14px;
-        height: 14px;
-    }
+#vis-symbolmap {
+    width: 95%;
+    /* 容器宽度 */
+    max-width: 1000px;
+    /* 最大宽度限制 */
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    text-align: center;
+    box-sizing: border-box;
+    /* 确保 padding 不会增加总宽度 */
 }
 
-/* 针对全局 * margin 影响 D3 元素的修正 */
-#vis-dotmap svg * {
-    /* 确保 #vis-dotmap 内部的 SVG 元素不受全局 margin 影响 */
-    margin: 0;
+#vis-symbolmap h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+/* SVG 容器样式 */
+#vis-symbolmap svg {
+    display: block;
+    /* 移除底部空白 */
+    margin: 0 auto;
+    background-color: #eaf4f7;
+    /* 地图背景色 */
+    border-radius: 5px;
+}
+
+/* 国家/地区样式 */
+.scountry {
+    fill: #d3dce0;
+    /* 国家填充色 */
+    stroke: #aeb6bf;
+    /* 国家边框色 */
+    stroke-width: 0.3px;
+}
+
+/* 访客点样式 */
+.visitor-point {
+    fill: #ff6347;
+    /* 访客点默认颜色 (番茄红) */
+    opacity: 0.7;
+    /* 平滑过渡效果，用于点出现和消失时的动画 */
+    transition: opacity 0.8s ease-out, r 0.5s ease-out, fill 0.3s ease-in-out;
+}
+
+/* 新访客点样式，短暂高亮 */
+.visitor-point.new {
+    fill: #28a745;
+    /* 新访客点颜色 (绿色) */
+    r: 7px;
+    /* 新访客点半径稍大 */
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
+    /* 绿色光晕 */
+}
+
+/* 鼠标悬停在访客点上的样式 */
+.visitor-point:hover {
+    fill: #007bff;
+    /* 悬停颜色 (蓝色) */
+    opacity: 1;
+    cursor: pointer;
+    r: 6px;
+    /* 悬停时半径稍大 */
+}
+
+.container5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+h7 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
 }
