@@ -17,11 +17,24 @@ html {
 }
 
 
+.container0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+
+}
 
 .grid-container {
     display: grid;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 200px;
+    grid-template-columns: 100px 200px 200px;
     grid-gap: 1px;
 }
 
@@ -38,7 +51,7 @@ html {
     background: lightgoldenrodyellow;
     border: solid 1px black;
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 2;
 }
@@ -46,10 +59,28 @@ html {
 .grid-item3 {
     background: lightgoldenrodyellow;
     border: solid 1px black;
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
+}
+
+.grid-item4 {
+    background: lightgoldenrodyellow;
+    border: solid 1px black;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.grid-item5 {
+    background: lightgoldenrodyellow;
+    border: solid 1px black;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 header,
@@ -92,15 +123,7 @@ nav p:first-child {
 
 
 
-.back {
-    font-size: large;
-    color: white;
-    background-color: burlywood;
-    padding: .75em 1em;
-    border-radius: .5em;
-    font-weight: 600;
-    text-decoration: none;
-}
+
 
 .flex-container {
     display: flex;
@@ -155,12 +178,78 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 1060px;
+    max-width: 1100px;
     margin: auto;
     background: antiquewhite;
     padding: 20px;
     border-radius: 8px;
 
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* 顶部对齐 */
+    margin-top: 20px;
+    background-color: antiquewhite;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.back {
+    font-size: large;
+    color: white;
+    background-color: burlywood;
+    padding: .75em 1em;
+    border-radius: .5em;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.controls {
+    margin-left: 30px;
+    /* 与图表保持距离 */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* 按钮之间的间距 */
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+/* 按钮样式 */
+.controls button {
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.controls button#sort-asc {
+    background-color: #e6aeba;
+    /* 绿色 */
+}
+
+.controls button#sort-asc:hover {
+    background-color: #c299a1;
+    transform: translateY(-1px);
+}
+
+.controls button#sort-desc {
+    background-color: #e6b8a5;
+    /* 蓝色 */
+}
+
+.controls button#sort-desc:hover {
+    background-color: #c2a193;
+    transform: translateY(-1px);
 }
 
 .axis path,
@@ -216,6 +305,8 @@ h1 {
     margin-right: 5px;
     border: 1px solid #333;
 }
+
+
 
 
 .container1 {
