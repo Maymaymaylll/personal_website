@@ -25,7 +25,7 @@ html {
     max-width: 1000px;
     background: antiquewhite;
     margin: 40px auto;
-    padding: 40px;
+    padding: 70px;
     text-align: center;
     border-radius: 8px;
 
@@ -33,70 +33,125 @@ html {
 
 .grid-container {
     display: grid;
-    grid-template-rows: 100px 200px;
-    grid-template-columns: 100px 200px 200px;
+    grid-template-rows: 200px 300px;
+    grid-template-columns: 250px 80px 200px 180px 350px;
     grid-gap: 1px;
 }
 
 .grid-item1 {
     background: lightgoldenrodyellow;
-    border: solid 1px black;
     grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-end: 2;
     grid-row-start: 1;
-    grid-row-end: 1;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
 }
 
 .grid-item2 {
     background: lightgoldenrodyellow;
-    border: solid 1px black;
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
 }
 
 .grid-item3 {
     background: lightgoldenrodyellow;
     border: solid 1px black;
-    grid-column-start: 3;
-    grid-column-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 1;
 }
 
 .grid-item4 {
     background: lightgoldenrodyellow;
-    border: solid 1px black;
-    grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
 }
 
 .grid-item5 {
     background: lightgoldenrodyellow;
     border: solid 1px black;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 2;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    grid-row-start: 1;
     grid-row-end: 3;
+}
+
+.grid-item6 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    font-size: 6em;
+    color: #333;
+}
+
+:root {
+    --content-block-width: 1300px;
+    --flex-container-padding: 40px;
 }
 
 header,
 section {
     margin: 2em auto;
-    width: min(75em, 100%);
+    width: min(100em, 100%);
     background-color: antiquewhite;
     padding: min(2em, 15%);
     border-radius: 1em;
 
 }
 
+
+
 nav {
-    margin: 1em auto 1em auto;
-    width: min(1000px, 100%);
     font-size: 1.5em;
+    margin-bottom: 2em;
+    /* 导航和内容之间的间距 */
+    display: flex;
+    /* 使 nav 成为 flex 容器 */
+    justify-content: center;
+    /* 居中其 ul 子元素 */
 }
 
 nav ul {
@@ -104,11 +159,18 @@ nav ul {
     align-items: center;
     list-style-type: none;
     gap: 2em;
+    padding: 0;
+    margin: 0;
+    max-width: var(--content-block-width);
+    width: 100%;
 }
 
 nav p:first-child {
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-right: auto;
-    font-size: 1.5em;
+    margin-left: 0;
+    font-size: 2em;
 }
 
 .subpage {
@@ -130,17 +192,20 @@ nav p:first-child {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 3em;
-    max-width: 1060px;
-    margin: auto;
+    flex-direction: row;
+    gap: 5em;
+    max-width: fit-content;
+    margin: 0;
     background: antiquewhite;
-    padding: 20px;
+    padding: 40px;
     border-radius: 8px;
 
+    max-width: calc(var(--content-block-width) + (2 * var(--flex-container-padding)));
+    margin: 0 auto;
 }
 
 header img {
-    max-width: 30%;
+    max-width: 35%;
     border-radius: 1em;
     object-fit: cover;
     object-position: bottom;
@@ -150,6 +215,11 @@ h1 {
     font-size: 2em;
     font-family: 'Courier New', Courier, monospace;
     margin-bottom: 2em;
+    white-space: nowrap;
+}
+
+.con {
+    font-size: 1em;
 }
 
 .intro_button {
@@ -165,7 +235,9 @@ h1 {
 
 .text-container {
     flex: 0 1 40em;
+    font-size: 1.3em;
 }
+
 
 body {
     font-family: sans-serif;
