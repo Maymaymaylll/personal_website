@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+</head>
+
+<body>
+    <nav id="floating-nav">
+        <ul>
+            <li><a class="nav-item" href="#top">Home</a></li>
+            <li><a class="nav-item" href="#work">Personl Work</a></li>
+            <li><a class="nav-item" href="#project">Project</a></li>
+            <li><a class="nav-item" href="#skill">Skill</a></li>
+            <li><a class="nav-item" href="#experience">Experience</a></li>
+        </ul>
+    </nav>
+    <header id="top">
+
+        <div class="flex-container">
+            <h1>Hi. I'm Liu Yiran.</h1>
+            <h1>An ideas person.</h1>
+            <div class="text-container">
+                <p class="con">I'm an ENFP girl—outgoing, opinionated, and full of creativity. I'm passionate about
+                    painting,
+                    visual designing, video making, project designing, and many other creative things.</p>
+                <a class="intro_button" href="https://www.instagram.com/ma.ymay8340/">Contact me</a>
+                <!--a class="intro_button" href="https://space.bilibili.com/399415436?spm_id_from=333.337.0.0">Follow me on
+                    bilibili</a-->
+            </div>
+
+
+        </div>
+    </header>
+
+
+
+    <main>
+        <div class="container0" id="work">
+            <div class="grid-container">
+                <div class="grid-item1"><img src="boardgame.jpg"></div>
+                <div class="grid-item2"><img src="lsm.jpg"></div>
+                <div class="grid-item3"><img src="mill.jpg"></div>
+                <div class="grid-item4"><img src="冲土.png"></div>
+                <div class="grid-item5"><img src="poster.png"></div>
+                <div class="grid-item6">
+                    <p class="sub_ti">Personal Works</p>
+                    <a class="work-buttom" href="mywork.html">Learn More→</a>
+                </div>
+            </div>
+        </div>
+
+        <!--div class="container1">
+            <h2>My Creative Work Distribution</h2>
+            <section id="vis-piechart"></section>
+        </div-->
+
+
+
+
+        <div class="container2" id="project">
+            <h3>Project experience</h3>
+            <div class="grid-container-p">
+                <div class="grid-item-p1">
+                    <a href="https://www.youtube.com/watch?v=4_FB_pp_RMw"><img src="Blue echo.jpeg"></a>
+                    <p class="video_d">Click to check the video↑</p>
+                </div>
+                <div class="grid-item-p2">
+                    <p class="project-title">Blue Echoes</p>
+                    <p class="project-desc">An interactive electronic art installation. When viewers place
+                        their finger on the external pulse sensor, the whale model within the installation
+                        will begin to play sounds and move up and down, eventually synchronizing its motion
+                        frequency with the viewer's heartbeat. Through this installation, we aim to provoke
+                        thoughts on nature conservation and the coexistence of humans and nature.</p>
+                    <p class="project-desc">My role: doing the programming and circuit designing work</p>
+                </div>
+                <div class="grid-item-p3">
+                    <p class="project-title">Who wrote the script of my life</p>
+                    <p class="project-desc">A participatory art piece. We invited individuals from various age groups
+                        and backgrounds to participate in interviews centered on the theme of "how external environments
+                        have influenced their past life choices." After the interviews, each participant was asked to
+                        draw a timeline of their lives based on the content discussed. Through this work, we aim to
+                        encourage both participants and viewers to reflect on how to navigate the relationship between
+                        their personal life choices and the influence of external factors.
+                    </p>
+                    <p class="project-desc">My role: part of the interview conducting and video editing work</p>
+                </div>
+                <div class="grid-item-p4">
+                    <a href="https://www.youtube.com/watch?v=_s8RARt5kOc&t=2s"><img src="script.png"></a>
+                    <p class="video_d">Click to check the video↑</p>
+                    <!--video controls width="750" poster="script.png">
+                        <source src="SM2706采访视频（终稿）.mp4" type="video/mp4" />
+                        <source src="SM2706采访视频（终稿）.mp4" type="video/webm" /-->
+                </div>
+            </div>
+        </div>
+
+        <div class="container3" id="skill">
+
+            <h4>Skills and related software</h4>
+            <section id="vis-graphdata"></section>
+
+            <!--h6>The adjacency matrix</h6>
+            <section id="vis-matrix"></section-->
+        </div>
+
+        <div class="container4" id="experience">
+            <h4>Internship experience</h4>
+            <div id="timeline-chart"></div>
+        </div>
+
+        <!--div class="container5">
+            <h7>Real time visitors</h7>
+            <section id="vis-symbolmap"></section>
+        </div-->
+
+
+
+
+        <script src="code.js"></script>
+        <script src="src/piechart.js"></script>
+        <script src="src/treechart.js"></script>
+        <script src="src/graphdata.js"></script>
+        <script src="src/matrix.js"></script>
+        <script src="src/dotmap.js"></script>
+        <script src="src/symbolmap.js"></script>
+        <script src="src/timeline.js"></script>
+    </main>
+
+
+
+</body>
+
+</html>

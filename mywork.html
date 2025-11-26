@@ -1,0 +1,146 @@
+<head>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+    <!--div class="container">
+        <p class="ti">Creative Work Output: Paintings, Videos, Games (2020-2025 Axis)</p>
+        <div class="chart-container">
+            <section id="vis-scatterplot"></section>
+            <div class="controls">
+                <button id="sort-asc">Ascending</button>
+                <button id="sort-desc">Descending</button>
+            </div>
+        </div>
+        <a class="back" href="index.html">Back to homepage</a>
+
+    </div-->
+    <div class="container">
+        <a class="back" href="index.html">◁ Back</a>
+        <p class="main_ti">Personal works</p>
+        <p class="con_p">This collection primarily includes paintings, visual designs, videos, and animations that I
+            completed independently or in small group during my university studies.</p>
+        <div class="sub_content">
+            <p class="sub_p">Summary:</p>
+            <h2 class="chart-title">Tyoes of work VS Year (2023-2025)</h2>
+            <!-- D3.js 图表将在这里生成 -->
+            <section id="vis-scatterplot"></section>
+            <div class="sort-controls">
+                <button id="sortAscBtn">Ascending</button>
+                <button id="sortDescBtn">Descending</button>
+            </div>
+
+        </div>
+
+        <div class="sub_content1">
+            <p class="sub_p">Video & Animation:</p>
+            <p class="video_anima">Click to check the full videos↓</p>
+            <a href="https://youtu.be/CfXHwpEWuPk"><img src="冲土.png" width="550"></a>
+            <a href="https://youtu.be/0DZZZd2FXYY"><img src="apt.png" width="550"></a>
+            <a href="https://youtu.be/NFPjiACKfYQ"><img src="ASMR.png" width="550"></a>
+            <a href="https://youtu.be/0DwzUBgKWeg"><img src="逆时钟.jpg" width="550"></a>
+            <!--video controls width="550" poster="逆时钟.jpg">
+                <source src="逆时针.mp4" type="video/mp4" />
+                <source src="逆时针.mp4" type="video/webm" />
+            </video-->
+            </br>
+            <a class="bilibili" href="https://space.bilibili.com/399415436?spm_id_from=333.1007.0.0">More in my bilibili
+                account→</a>
+        </div>
+        <div class="sub_content4">
+            <p class="sub_p">Game:</p>
+            <div class="grid-container-g">
+                <div class="grid-item-g1">
+                    <div class="game-title">Food or Fungi (Boardgame, completed)</div>
+                    <div class="game-desc">A board game designed for 3-5 players, where players compete to collect
+                        edible foods while avoiding poisonous fungi. The game incorporates elements of strategy and
+                        luck, making it engaging and fun for all ages.</div>
+                    <div class="game-desc">
+                        Mainly Responsible for the game concept and gameplay design.
+                    </div>
+                </div>
+                <div class="grid-item-g2">
+                    <a href="https://youtu.be/dGamTodoPvc"><img src="boardgame.jpg"></a>
+                    <p class="game_v">Click to check the gameplay video↑</p>
+                </div>
+                <div class="grid-item-g3">
+                    <a href="https://youtu.be/JsGa6tbebeE"><img src="Alienation.png"></a>
+                    <p class="game_v">Click to check the gameplay video↑</p>
+                    <!--video controls width="450" poster="Alienation_start.jpg">
+                        <source src="Alienation.mp4" type="video/mp4" />
+                        <source src="Alienation.mp4" type="video/webm" />
+                    </video-->
+                </div>
+                <div class="grid-item-g4">
+                    <div class="game-title">Alienation (Video Game, prototype)</div>
+                    <div class="game-desc">An atmospheric exploration and puzzle-solving game in which players need to
+                        collect
+                        specific items in each level to unlock access to next level. The game incorporates the concept
+                        of cyber
+                        punk and indicates the pyramid-shaped social structure of wealth disparity in the cyberpunk
+                        world throug
+                        h levels with different themes.</div>
+                    <div class="game-desc">
+                        Mainly Responsible for the game concept, level design, and programming.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub_content2">
+            <p class="sub_p">Paintings:</p>
+            <div id="d3-carousel-root">
+                <!-- 轮播容器 -->
+                <div id="image-carousel-container">
+                    <button id="prev-btn" class="carousel-arrow">&lt;</button>
+                    <div id="carousel-viewport">
+                        <div id="carousel-images-wrapper">
+                            <!-- 图片将由 D3.js 动态添加 -->
+                        </div>
+                    </div>
+                    <button id="next-btn" class="carousel-arrow">&gt;</button>
+                </div>
+
+                <!-- 大图显示覆盖层 -->
+                <div id="large-image-overlay">
+                    <img id="large-image" src="" alt="Large Image">
+                    <span id="close-large-image">&times;</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="sub_content3">
+            <p class="sub_p">Visual design:</p>
+            <div class="grid-container-v">
+                <div class="grid-item-v1"><img src="poster.png"></div>
+                <div class="grid-item-v2"><img src="banner.jpg"></div>
+                <div class="grid-item-v3"><img src="square.jpg"></div>
+                <div class="grid-item-v4"><img src="round.jpg"></div>
+                <div class="grid-item-v5">
+                    <p class="grid-text">Visual design for Science and Art Calligraphy Exhibition 2023.</p>
+                    <p class="grid-text">Also be used as the cover of the Korean magazine WEHONG that month</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div id="tooltip"></div>
+
+
+
+
+    <script src="src/scatterplot.js"></script>
+    <script src="carousel-root.js"></script>
+</body>

@@ -1,0 +1,1549 @@
+html {
+    background-color: rgb(239, 218, 198);
+    scroll-behavior: smooth;
+}
+
+* {
+    color: black;
+    margin: 10px;
+    font: 14px Tahoma;
+}
+
+
+
+
+.box {
+    display: flex;
+}
+
+
+.container0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: var(--content-block-width);
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 100px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+/*.grid-container {
+    display: grid;
+    grid-template-rows: 380px 380px;
+    grid-template-columns: 480px 80px 280px 300px 500px;
+    grid-gap: 1px;
+}*/
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 6fr 1fr 5.3fr 3.75fr 6.25fr;
+    grid-gap: 1px;
+    max-width: var(--content-block-width);
+}
+
+.grid-item1 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item2 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item3 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item4 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item5 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item5 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item6 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.sub_ti {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    font-size: 4em;
+    color: #333;
+    margin-bottom: 1.4em;
+}
+
+.work-buttom {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    float: left;
+    font-size: 2em;
+}
+
+@media (max-width: 768px) {
+
+    .grid-container {
+        /* 在小屏幕上改为单列布局 */
+        grid-template-columns: 1fr;
+        /* 所有项目都会在同一列，垂直堆叠 */
+    }
+
+    /* 重新定义所有 grid-item 的位置 */
+    /* 让所有 grid item 从第 1 列开始，并在第 2 列结束 (即占据整列) */
+    /* 行的位置可以保持不变，因为它们会自然地堆叠 */
+    .grid-item1,
+    .grid-item2,
+    .grid-item3,
+    .grid-item4,
+    .grid-item5,
+    .grid-item6 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        /* 确保占据整个 1fr 列 */
+        /* 移除固定的 grid-row-start/end, 让它们自然流淌 */
+        /* 如果必须控制顺序，可以显式设置 grid-row: auto; 或使用 order 属性 */
+    }
+
+    /* 确保文本区 (.grid-item6) 在顶部或合适的位置 */
+    .grid-item6 {
+        /* 在单列布局中，可以将其放在最上方 */
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    /* 为确保小屏幕上标题不会太大导致溢出，可以调整 sub_ti 的字体大小 */
+    .sub_ti {
+        font-size: 2em;
+        /* 调整为更适合移动设备的尺寸 */
+    }
+}
+
+:root {
+    --content-block-width: 1300px;
+    --flex-container-padding: 40px;
+}
+
+header,
+section {
+    margin: 0 auto;
+    background-color: rgb(239, 218, 198);
+    padding: min(7em, 15%);
+    border-radius: 1em;
+    max-width: var(--content-block-width);
+
+}
+
+
+
+#floating-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+#floating-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+    display: flex;
+    gap: 12px;
+    background-color: rgb(245, 241, 236);
+    border-radius: 2.5em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+#floating-nav li {
+    margin: 0;
+}
+
+.nav-item {
+    display: block;
+    border: none;
+    border-radius: 1.8em;
+    font-size: 1em;
+    color: rgb(100, 90, 80);
+    background-color: transparent;
+    text-decoration: none;
+    padding: .6em 1.6em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.nav-item.active {
+    background-color: rgb(255, 255, 255);
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+main {
+    background-color: rgb(239, 218, 198);
+}
+
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.4em;
+    max-width: fit-content;
+    margin: 0;
+    background: rgb(239, 218, 198);
+    padding: 10px;
+    border-radius: 8px;
+    max-width: var(--content-block-width);
+    margin: 0 auto;
+}
+
+
+h1 {
+    font-size: 7em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 0.4em;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 10em;
+    font-size: 1.3em;
+    width: 600px;
+}
+
+.con {
+    font-size: 1em;
+    text-align: center;
+}
+
+.intro_button {
+    font-size: 1em;
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(234, 228, 226);
+    background-color: burlywood;
+    padding: .75em 1em;
+    margin-top: 3em;
+    border-radius: .5em;
+    font-weight: 600;
+}
+
+
+
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    max-width: var(--content-block-width);
+    margin: auto;
+    background: rgb(239, 218, 198);
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+.main_ti {
+    font-size: 7em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 100px auto;
+    color: #333;
+    font-weight: bold;
+}
+
+.con_p {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 20px auto;
+    color: #333;
+    max-width: 900px;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* 顶部对齐 */
+    margin-top: 20px;
+    background-color: antiquewhite;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.back {
+    font-size: 2em;
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 0 1em;
+    margin-top: 0em;
+    border-radius: .5em;
+    font-weight: 600;
+}
+
+#vis-scatterplot {
+    background-color: antiquewhite;
+    padding: 0px 150px 120px 150px;
+    border-radius: 8px;
+    max-width: var(--content-block-width);
+    /* 限制容器最大宽度 */
+    width: 100%;
+    margin-top: 30px;
+    /* 允许容器响应式 */
+    box-sizing: border-box;
+}
+
+.sub_p {
+    font-size: 2.3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    color: #333;
+    text-align: left;
+}
+
+.sub_content {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 70px 20px 80px 20px;
+    background-color: antiquewhite;
+    max-width: var(--content-block-width);
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 60px;
+}
+
+.chart-title {
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 2em;
+    color: #333;
+}
+
+/* 排序按钮容器样式 */
+.sort-controls {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: antiquewhite;
+    max-width: var(--content-block-width);
+    border-radius: 8px;
+    margin-top: -90px;
+}
+
+.sort-controls button {
+    padding: 8px 15px;
+    margin: 0px 20px 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #666;
+    background-color: #dfc9c3;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.sort-controls button:hover {
+    background-color: #c1ada7;
+    border-color: #aaa;
+}
+
+.sort-controls button:active {
+    background-color: #6e625f;
+    border-color: #999;
+}
+
+/* SVG 样式 */
+svg {
+    display: block;
+    /* 移除底部空白 */
+    margin: auto;
+    /* 居中 SVG */
+}
+
+/* 轴线样式 */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #ccc;
+    /* 轴线颜色 */
+    shape-rendering: crispEdges;
+    /* 锐化线条 */
+}
+
+.axis text {
+    font-size: 12px;
+    fill: #666;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: bold;
+    fill: #333;
+}
+
+/* 提示框样式 */
+#tooltip {
+    position: absolute;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    pointer-events: none;
+    /* 确保鼠标事件穿透到下面的元素 */
+    font-size: 13px;
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sub_content1 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 20px 40px 20px;
+    background-color: antiquewhite;
+    max-width: var(--content-block-width);
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.video_anima{
+    font-size: 1.5em;
+    color: #606060;
+    text-align:center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.bilibili {
+    font-size: 1.7em;
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(100, 90, 80);
+    background-color: transparent;
+    padding: .5em 1em;
+    margin-top: 0;
+    border-radius: .5em;
+    text-decoration: underline;
+}
+
+.sub_content2 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 20px 40px 20px;
+    background-color: antiquewhite;
+    max-width: var(--content-block-width);
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+
+
+:root {
+    --image-width: 380px;
+    /* 每张小图的宽度 */
+    --image-height: 380px;
+    /* 每张小图的高度 */
+    --image-spacing: 10px;
+    /* 图片之间的间隔 */
+    --images-to-show: 3;
+    /* 一次显示多少张图片 */
+}
+
+#image-carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    position: relative;
+    max-width: calc(var(--images-to-show) * var(--image-width) + (var(--images-to-show)) * var(--image-spacing) + 120px);
+    /* 视口宽度 + 箭头宽度 */
+}
+
+/* 轮播视口 - 仅显示可见的图片 */
+#carousel-viewport {
+    width: calc(var(--images-to-show) * var(--image-width) + (var(--images-to-show)) * var(--image-spacing)+20px);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+    padding-left: 0;
+}
+
+/* 图片包裹层 - 实际进行横向移动的元素 */
+#carousel-images-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* 平滑滚动效果 */
+}
+
+/* 单个小图样式 */
+.carousel-image {
+    width: var(--image-width);
+    height: var(--image-height);
+    object-fit: cover;
+    /* 保持图片比例，裁剪超出部分 */
+    margin-right: var(--image-spacing);
+    margin-left: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    /* 防止图片在 flex 容器中缩小 */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.carousel-image:hover {
+    transform: scale(1.03);
+}
+
+/* 最后一个图片不需要右侧间隔 */
+#carousel-images-wrapper .carousel-image:last-child {
+    margin-right: 0;
+}
+
+/* 轮播箭头按钮 */
+.carousel-arrow {
+    background-color: #e8b062;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 10px;
+    border-radius: 50%;
+    /* 圆形按钮 */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    /* 固定宽度 */
+    height: 50px;
+    /* 固定高度 */
+    flex-shrink: 0;
+    /* 防止按钮缩小 */
+}
+
+.carousel-arrow:hover {
+    background-color: #a1783d;
+    transform: scale(1.05);
+}
+
+.carousel-arrow:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: scale(1);
+    box-shadow: none;
+}
+
+/* 大图显示覆盖层 */
+#large-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    /* 半透明黑色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* 确保在大图显示在最上层 */
+    visibility: hidden;
+    /* 默认隐藏 */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+    /* 渐隐渐现效果 */
+}
+
+#large-image-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+#large-image {
+    max-width: 90%;
+    /* 最大宽度 */
+    max-height: 90%;
+    /* 最大高度 */
+    object-fit: contain;
+    /* 保持图片比例，适应容器 */
+    border: 8px solid white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+}
+
+#close-large-image {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: white;
+    font-size: 48px;
+    cursor: pointer;
+    font-family: sans-serif;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: color 0.2s;
+}
+
+#close-large-image:hover {
+    color: #ff4d4d;
+    /* 鼠标悬停时变红 */
+}
+
+.sub_content3 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 20px 40px 20px;
+    background-color: antiquewhite;
+    max-width: var(--content-block-width);
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.grid-container-v {
+    display: grid;
+    grid-auto-rows: 100px 400px 400px;
+    grid-template-columns: 6fr 5fr 5fr;
+    grid-gap: 1px;
+    margin-top: 20px;
+}
+
+.grid-item-v1 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item-v1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item-v2 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item-v2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item-v3 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item-v3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item-v4 {
+    background: lightgoldenrodyellow;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item-v4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+}
+
+.grid-item-v5 {
+    background: transparent;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-text {
+    font-size: 1.5em;
+    color: #333;
+    text-align: left;
+}
+
+.sub_content4 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 20px 40px 20px;
+    background-color: antiquewhite;
+    max-width: var(--content-block-width);
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+
+
+.grid-container-g {
+    display: grid;
+    grid-auto-rows: auto auto;
+    grid-template-columns: 5fr 3fr 5fr;
+    grid-gap: 1px;
+    grid-row-gap: 30px;
+    margin-top: 40px;
+}
+
+.game_v{
+    font-size: 1em;
+    color: #606060;
+    text-align:left;
+}
+.grid-item-g1 {
+    background: rgb(252, 244, 232);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.game-title {
+    font-size: 1.9em;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.game-desc {
+    font-size: 1.4em;
+    color: #555;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.grid-item-g2 {
+    background: transparent;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item-g2 img {
+    max-width: 100%; /* 确保图片最大宽度不超过父容器 */
+    height: auto;    /* 保持图片纵横比 */
+    display: block;  /* 消除图片底部可能存在的额外空间 */
+}
+
+.grid-item-g3 {
+    background: transparent;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item-g3 img {
+    max-width: 100%; /* 确保图片最大宽度不超过父容器 */
+    height: auto;    /* 保持图片纵横比 */
+    display: block;  /* 消除图片底部可能存在的额外空间 */
+}
+
+
+.grid-item-g4 {
+    background: rgb(252, 244, 232);
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+
+
+
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: var(--content-block-width);
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 100px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+.video_d{
+    font-size: 1em;
+    color: #606060;
+    text-align:center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.grid-container-p {
+    display: grid;
+    justify-content: space-between;
+    grid-auto-rows: 500px 500px;
+    grid-template-columns: 5fr 3fr 5fr;
+    grid-gap: 30px;
+    grid-row-gap: 80px;
+    margin-top: 40px;
+}
+
+.grid-item-p1 {
+    padding-left: 0px;
+    background: transparent;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.grid-item-p1 img {
+    max-width: 100%; /* 确保图片最大宽度不超过父容器 */
+    height: auto;    /* 保持图片纵横比 */
+    display: block;  /* 消除图片底部可能存在的额外空间 */
+}
+
+
+.project-title {
+    font-size: 1.9em;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.project-desc {
+    font-size: 1.4em;
+    color: #555;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.grid-item-p2 {
+    background: transparent;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+
+
+
+.grid-item-p3 {
+    background: transparent;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+
+.grid-item-p4 {
+    background: transparent;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.grid-item-p4 img {
+    max-width: 100%; /* 确保图片最大宽度不超过父容器 */
+    height: auto;    /* 保持图片纵横比 */
+    display: block;  /* 消除图片底部可能存在的额外空间 */
+}
+
+
+
+
+.node circle {
+    fill: #999;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 3px;
+}
+
+.node text {
+    font-family: sans-serif;
+    font: 12px sans-serif;
+    fill: #333;
+}
+
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+}
+
+h3 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    float: left;
+    margin: 0px;
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+
+
+
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: var(--content-block-width);
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 100px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+h4 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+
+section#vis-graphdata {
+    /* 修改了ID名称以更通用 */
+    width: 100%;
+    max-width: 960px;
+    /* 最大宽度，适应大屏幕 */
+    height: 650px;
+    /* 固定高度，确保SVG有足够的空间 */
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    /* 柔和的阴影 */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    /* 使用 flexbox 居中 SVG */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* 防止内容溢出 */
+}
+
+/* SVG 样式 - 限定在容器ID内，避免全局冲突 */
+#vis-graphdata svg {
+    display: block;
+    width: 100%;
+    /* 使 SVG 响应式 */
+    height: 100%;
+    /* 使 SVG 响应式 */
+}
+
+/* 链接 (线) 样式 - 新命名 */
+.d3-graph-link {
+    stroke: #999;
+    /* 默认灰色 */
+    stroke-opacity: 0.8;
+    stroke-width: 2px;
+    /* 默认线宽 */
+    transition: stroke-width 0.1s ease-out, stroke 0.1s ease-out;
+    /* 添加过渡效果 */
+}
+
+/* 节点 (圆圈和文本组) 样式 - 新命名 */
+.d3-graph-node circle {
+    stroke-width: 1px;
+    /* 圆圈边框宽度 */
+    cursor: grab;
+    /* 鼠标悬停时显示可拖动图标 */
+    transition: stroke-width 0.1s ease-out, stroke 0.1s ease-out;
+    /* 悬停动画 */
+}
+
+.d3-graph-node circle:hover {
+    stroke-width: 2px;
+    /* 悬停时边框加粗 */
+    cursor: grab;
+}
+
+/* 节点文本样式 - 新命名 */
+.d3-graph-node text {
+    font-weight: bold;
+    text-anchor: middle;
+    /* 文本水平居中 */
+    pointer-events: none;
+    /* 文本不应干扰拖动事件 */
+    fill: #333;
+    /* 深灰色文本 */
+    line-height: 1.2;
+    /* 行高，用于多行文本 */
+}
+
+
+/* 链接标签文本样式 */
+.link-label text {
+    font-family: sans-serif;
+    font-size: 10px;
+    fill: #555;
+    text-anchor: middle;
+    /* 文本居中对齐 */
+    pointer-events: none;
+    /* 确保文本不会干扰拖拽 */
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), -1px -1px 0 rgba(255, 255, 255, 0.8),
+        1px -1px 0 rgba(255, 255, 255, 0.8), -1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+#vis-matrix {
+    margin: 20px auto;
+    max-width: fit-content;
+    /* 让容器根据内容调整宽度 */
+    overflow-x: auto;
+    /* 当表格过宽时，允许水平滚动 */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/* 表格通用样式 */
+table {
+    border-collapse: collapse;
+    /* 合并边框 */
+    width: auto;
+    /* 宽度自适应内容 */
+    margin: 0;
+    /* 移除默认外边距 */
+}
+
+/* 表头和数据单元格样式 */
+th,
+td {
+    border: 1px solid #dee2e6;
+    /* 边框颜色 */
+    padding: 10px 15px;
+    /* 内边距 */
+    text-align: center;
+    min-width: 70px;
+    /* 确保单元格有最小宽度 */
+    white-space: nowrap;
+    /* 防止文本换行 */
+    font-size: 0.95em;
+}
+
+/* 表头单元格的默认样式 */
+th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #495057;
+}
+
+/* 值为 1 的数据单元格高亮样式 */
+.highlight-one {
+    background-color: #ffeb3b;
+    /* 鲜黄色 */
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* 响应式设计：针对小屏幕设备 */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 15px;
+    }
+
+    .ti {
+        font-size: 1.8em;
+    }
+
+    #vis-matrix {
+        padding: 10px;
+    }
+
+    th,
+    td {
+        padding: 8px 10px;
+        min-width: 50px;
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    th,
+    td {
+        padding: 6px 8px;
+        min-width: 40px;
+        font-size: 0.8em;
+    }
+}
+
+.sub_title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 1em;
+    color: #333;
+}
+
+h6 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+}
+
+
+.container4 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: var(--content-block-width);
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 100px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+#timeline-chart {
+    position: relative;
+    overflow: visible;
+    /* 允许内容超出SVG边界（如果需要） */
+    width: 100%;
+    max-height: fit-content;
+    /* 确保容器宽度为100%以支持响应式 */
+}
+
+.timeline-line {
+    stroke: #fcb56d;
+    stroke-width: 4;
+    fill: none;
+}
+
+.timeline-point {
+    fill: #fcb56d;
+    stroke: #fff;
+    stroke-width: 2;
+}
+
+.timeline-year {
+    font-weight: bold;
+    font-size: 1.5em;
+    fill: #2c3e50;
+    text-anchor: middle;
+    /* For SVG text, centers it on its x-coordinate */
+}
+
+/* New CSS classes for HTML content inside foreignObject */
+.timeline-company-role-content,
+.timeline-description-content {
+    font-size: 1.2em;
+    color: #555;
+    text-align:justify;
+    /* Centers the text within the div */
+    line-height: 1.2em;
+    /* Adjust line height for better readability */
+    word-wrap: break-word;
+    /* Allows long words to break */
+    overflow-wrap: break-word;
+    /* Modern equivalent of word-wrap */
+    /* Ensure the div takes up 100% width of its foreignObject parent */
+    width: 100%;
+    height: 100%;
+    /* Important for foreignObject to render content */
+    display: flex;
+    /* Use flexbox to vertically center if needed, or just for layout */
+    align-items: center;
+    /* Vertically center content if foreignObject height > content height */
+    justify-content: center;
+    /* Horizontally center content */
+    box-sizing: border-box;
+    /* Include padding/border in width/height */
+    padding: 10px;
+    /* Small padding inside the div */
+}
+
+.timeline-company-role-content {
+    font-weight: bold;
+    /* Keep company role bold */
+}
+
+.timeline-image {
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Ensure images are not too large on small screens */
+    max-width: 100%;
+    height: auto;
+}
+
+.arrowhead {
+    fill: #fcb56d;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .timeline-year {
+        font-size: 1em;
+    }
+
+    .timeline-company-role-content,
+    .timeline-description-content {
+        font-size: 0.8em;
+    }
+
+    /* Adjust foreignObject widths if necessary for smaller screens,
+               though viewBox and preserveAspectRatio help scale.
+               For very narrow screens, you might need to dynamically adjust
+               foreignObject widths in JS or accept more vertical space. */
+}
+
+h7 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+}
+
+#vis-dotmap {
+    width: 100%;
+    max-width: 960px;
+    /* 您可以根据需要调整最大宽度 */
+    margin: 20px auto;
+    /* 居中显示 */
+    position: relative;
+    /* 如果需要对图例进行更复杂的定位 */
+}
+
+/* 使SVG本身响应式，保持宽高比 */
+#vis-dotmap svg {
+    display: block;
+    /* 移除SVG下方可能出现的额外空间 */
+    width: 100%;
+    height: auto;
+    /* 保持宽高比 */
+}
+
+/* 国家路径样式 */
+.country {
+    stroke: #333;
+    /* 国家边框颜色 */
+    stroke-width: 0.5px;
+    /* 国家边框宽度 */
+}
+
+/* 圆点样式 */
+.dot {
+    opacity: 0.7;
+    /* 圆点透明度 */
+}
+
+/* 图例背景框样式 */
+.legend-box {
+    fill: white;
+    /* 白色背景 */
+    stroke: black;
+    /* 黑色边框 */
+    stroke-width: 1px;
+    /* 边框宽度 */
+}
+
+/* 图例文本样式 */
+.legend-text {
+    font-family: sans-serif;
+    font-size: 12px;
+    fill: #333;
+}
+
+#vis-symbolmap {
+    width: 95%;
+    /* 容器宽度 */
+    max-width: 1000px;
+    /* 最大宽度限制 */
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    text-align: center;
+    box-sizing: border-box;
+    /* 确保 padding 不会增加总宽度 */
+}
+
+#vis-symbolmap h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+/* SVG 容器样式 */
+#vis-symbolmap svg {
+    display: block;
+    /* 移除底部空白 */
+    margin: 0 auto;
+    background-color: #eaf4f7;
+    /* 地图背景色 */
+    border-radius: 5px;
+}
+
+/* 国家/地区样式 */
+.scountry {
+    fill: #d3dce0;
+    /* 国家填充色 */
+    stroke: #aeb6bf;
+    /* 国家边框色 */
+    stroke-width: 0.3px;
+}
+
+/* 访客点样式 */
+.visitor-point {
+    fill: #ff6347;
+    /* 访客点默认颜色 (番茄红) */
+    opacity: 0.7;
+    /* 平滑过渡效果，用于点出现和消失时的动画 */
+    transition: opacity 0.8s ease-out, r 0.5s ease-out, fill 0.3s ease-in-out;
+}
+
+/* 新访客点样式，短暂高亮 */
+.visitor-point.new {
+    fill: #28a745;
+    /* 新访客点颜色 (绿色) */
+    r: 7px;
+    /* 新访客点半径稍大 */
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
+    /* 绿色光晕 */
+}
+
+/* 鼠标悬停在访客点上的样式 */
+.visitor-point:hover {
+    fill: #007bff;
+    /* 悬停颜色 (蓝色) */
+    opacity: 1;
+    cursor: pointer;
+    r: 6px;
+    /* 悬停时半径稍大 */
+}
+
+.container5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    background: antiquewhite;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+h7 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+}
