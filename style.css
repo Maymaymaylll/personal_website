@@ -232,7 +232,12 @@ section {
     display: flex;
     justify-content: center;
     background-color: transparent;
+    /* 初始透明 */
+    transition: background-color 0.3s ease;
+    /* 添加背景色过渡 */
 }
+
+/* 当滚动时，给导航栏一个背景色，使其更显眼 */
 
 #floating-nav ul {
     list-style: none;
@@ -241,9 +246,14 @@ section {
     display: flex;
     gap: 12px;
     background-color: rgb(245, 241, 236);
+    /* 你的导航背景色 */
     border-radius: 2.5em;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     align-items: center;
+    flex-wrap: wrap;
+    /* 允许换行，适应小屏幕 */
+    justify-content: center;
+    /* 居中对齐 */
 }
 
 #floating-nav li {
@@ -260,23 +270,25 @@ section {
     text-decoration: none;
     padding: .6em 1.6em;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, font-weight 0.3s ease;
     font-weight: 500;
     white-space: nowrap;
 }
-
 
 .nav-item:hover {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-
+/* 激活状态样式 - 你的代码中已存在，完美符合图1效果 */
 .nav-item.active {
     background-color: rgb(255, 255, 255);
     font-weight: 600;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: rgb(100, 90, 80);
+    /* 确保激活时颜色不变或更深 */
 }
+
 
 
 main {
@@ -336,8 +348,28 @@ h1 {
     font-weight: 600;
 }
 
+.contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0px;
+    max-width: fit-content;
+    margin: 0;
+    background: transparent;
+    border-radius: 8px;
+    max-width: var(--content-block-width);
+    margin: 0 auto;
+}
 
-
+.mail{
+    font-size: 1.5em;
+    color: rgb(99, 91, 82);
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
 
 
 .container {
@@ -518,10 +550,10 @@ svg {
     margin-top: 30px;
 }
 
-.video_anima{
+.video_anima {
     font-size: 1.5em;
     color: #606060;
-    text-align:center;
+    text-align: center;
     margin-top: 20px;
     margin-bottom: 0px;
 }
@@ -845,11 +877,12 @@ svg {
     margin-top: 40px;
 }
 
-.game_v{
+.game_v {
     font-size: 1em;
     color: #606060;
-    text-align:left;
+    text-align: left;
 }
+
 .grid-item-g1 {
     background: rgb(252, 244, 232);
     grid-column-start: 1;
@@ -885,9 +918,12 @@ svg {
 }
 
 .grid-item-g2 img {
-    max-width: 100%; /* 确保图片最大宽度不超过父容器 */
-    height: auto;    /* 保持图片纵横比 */
-    display: block;  /* 消除图片底部可能存在的额外空间 */
+    max-width: 100%;
+    /* 确保图片最大宽度不超过父容器 */
+    height: auto;
+    /* 保持图片纵横比 */
+    display: block;
+    /* 消除图片底部可能存在的额外空间 */
 }
 
 .grid-item-g3 {
@@ -901,9 +937,12 @@ svg {
 }
 
 .grid-item-g3 img {
-    max-width: 100%; /* 确保图片最大宽度不超过父容器 */
-    height: auto;    /* 保持图片纵横比 */
-    display: block;  /* 消除图片底部可能存在的额外空间 */
+    max-width: 100%;
+    /* 确保图片最大宽度不超过父容器 */
+    height: auto;
+    /* 保持图片纵横比 */
+    display: block;
+    /* 消除图片底部可能存在的额外空间 */
 }
 
 
@@ -957,13 +996,14 @@ h2 {
 
 }
 
-.video_d{
+.video_d {
     font-size: 1em;
     color: #606060;
-    text-align:center;
+    text-align: center;
     margin-top: 20px;
     margin-bottom: 30px;
 }
+
 .grid-container-p {
     display: grid;
     justify-content: space-between;
@@ -986,9 +1026,12 @@ h2 {
 }
 
 .grid-item-p1 img {
-    max-width: 100%; /* 确保图片最大宽度不超过父容器 */
-    height: auto;    /* 保持图片纵横比 */
-    display: block;  /* 消除图片底部可能存在的额外空间 */
+    max-width: 100%;
+    /* 确保图片最大宽度不超过父容器 */
+    height: auto;
+    /* 保持图片纵横比 */
+    display: block;
+    /* 消除图片底部可能存在的额外空间 */
 }
 
 
@@ -1039,10 +1082,14 @@ h2 {
     border-radius: 3px;
     overflow: hidden;
 }
+
 .grid-item-p4 img {
-    max-width: 100%; /* 确保图片最大宽度不超过父容器 */
-    height: auto;    /* 保持图片纵横比 */
-    display: block;  /* 消除图片底部可能存在的额外空间 */
+    max-width: 100%;
+    /* 确保图片最大宽度不超过父容器 */
+    height: auto;
+    /* 保持图片纵横比 */
+    display: block;
+    /* 消除图片底部可能存在的额外空间 */
 }
 
 
@@ -1340,7 +1387,7 @@ h6 {
 .timeline-description-content {
     font-size: 1.2em;
     color: #555;
-    text-align:justify;
+    text-align: justify;
     /* Centers the text within the div */
     line-height: 1.2em;
     /* Adjust line height for better readability */
