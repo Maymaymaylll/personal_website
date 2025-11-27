@@ -2,7 +2,7 @@
     const timelineData = [
         {
             year: 2024,
-            companyRole: "Company: Shanghai Runmi Cultural Media Co.\nRole: New Media Operations Assistant",
+            companyRole: "Company: Shanghai Runmi Cultural Media Co.\nPosition: New Media Operations Assistant",
             description: "Responsible for content planning, scriptwriting, and video editing for the company's book marketing video channel. Independently managed the entire production process, from material selection to final video output. The average view count of the produced videos ranged from 1k to 3k, and each video contributed to the sale of 5 to 10 copies of the associated books.",
             image: "run.jpg",
             yearPosition: "above", // 'below' means below the timeline line
@@ -12,7 +12,7 @@
         },
         {
             year: 2025,
-            companyRole: "Company: Shanghai Media Group\nRole: Visual editor",
+            companyRole: "Company: Shanghai Media Group\nPosition: Visual editor",
             description: "Assisted in coordinating a cultural tourism campaign in collaboration with the Dunhuang Academy. Mainly responsible for the visual design and procurement negotiation works, contributing creative ideas to facilitate project advancement. This experience provided comprehensive insight into processes and execution patterns of project planning, significantly enhancing my professional expertise and related skills.",
             image: "smg.jpg",
             yearPosition: "above",
