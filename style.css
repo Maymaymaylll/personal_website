@@ -166,8 +166,8 @@ html {
     color: rgb(59, 59, 59);
 }
 
-.work-buttom:hover{
-    color:#676e75
+.work-buttom:hover {
+    color: #676e75
 }
 
 @media (max-width: 768px) {
@@ -357,7 +357,7 @@ h1 {
     margin: 0 auto;
 }
 
-.contact a:hover{
+.contact a:hover {
     transform: scale(1.1);
 }
 
@@ -940,7 +940,7 @@ svg {
     grid-row-start: 1;
     grid-row-end: 1;
     border-radius: 3px;
-    overflow:visible;
+    overflow: visible;
 }
 
 .grid-item-g2 img {
@@ -1219,52 +1219,31 @@ section#vis-graphdata {
 }
 
 /* SVG 样式 - 限定在容器ID内，避免全局冲突 */
-#vis-graphdata svg {
-    display: block;
-    width: 100%;
-    /* 使 SVG 响应式 */
-    height: 100%;
-    /* 使 SVG 响应式 */
+#vis-graphdata {
+    width: 100vw;
+    /* 视口宽度 */
+    height: 100vh;
+    /* 视口高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    /* 背景色 */
 }
 
-/* 链接 (线) 样式 - 新命名 */
-.d3-graph-link {
-    stroke: #999;
-    /* 默认灰色 */
-    stroke-opacity: 0.8;
-    stroke-width: 2px;
-    /* 默认线宽 */
-    transition: stroke-width 0.1s ease-out, stroke 0.1s ease-out;
-    /* 添加过渡效果 */
-}
-
-/* 节点 (圆圈和文本组) 样式 - 新命名 */
-.d3-graph-node circle {
-    stroke-width: 1px;
-    /* 圆圈边框宽度 */
-    cursor: grab;
-    /* 鼠标悬停时显示可拖动图标 */
-    transition: stroke-width 0.1s ease-out, stroke 0.1s ease-out;
-    /* 悬停动画 */
-}
-
-.d3-graph-node circle:hover {
-    stroke-width: 2px;
-    /* 悬停时边框加粗 */
-    cursor: grab;
-}
-
-/* 节点文本样式 - 新命名 */
 .d3-graph-node text {
-    font-weight: bold;
     text-anchor: middle;
-    /* 文本水平居中 */
-    pointer-events: none;
-    /* 文本不应干扰拖动事件 */
+    /* 文本居中 */
     fill: #333;
-    /* 深灰色文本 */
-    line-height: 1.2;
-    /* 行高，用于多行文本 */
+    /* 文本颜色 */
+    pointer-events: none;
+    font-weight: bold;
+    /* 文本不捕获鼠标事件，让事件穿透到圆圈 */
+}
+
+.d3-graph-link {
+    stroke-linecap: round;
+    /* 线条末端样式 */
 }
 
 

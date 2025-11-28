@@ -5,22 +5,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const graphData = {
         nodes: [
             // 主要类别 (Group 1 - 较大圆圈，特定颜色，深色边框)
-            { id: "Animation", label: "Animation", group: 1, color: "rgb(255, 255, 102)" }, // 黄色
-            { id: "Video editing", label: "Video editing", group: 1, color: "rgba(232, 192, 82, 1)" }, // 橙棕色
-            { id: "Painting", label: "Painting", group: 1, color: "rgb(247, 163, 92)" }, // 浅橙色
-            { id: "Visual designing", label: "Visual designing", group: 1, color: "rgb(240, 128, 128)" }, // 浅珊瑚色
-            { id: "Game developing", label: "Game developing", group: 1, color: "rgb(221, 160, 221)" }, // 浅紫色
-            { id: "Programming", label: "Programming", group: 1, color: "rgba(240, 120, 158, 1)" }, // 浅紫色
+            { id: "Animation", label: "Animation", group: 1, color: "#75b83eff" }, // 黄色
+            { id: "Video editing", label: "Video editing", group: 1, color: "#2ca02c" }, // 橙棕色
+            { id: "Painting", label: "Painting", group: 1, color: "#fea025ff" }, // 浅橙色
+            { id: "Visual designing", label: "Visual designing", group: 1, color: "#278ed7ff" }, // 浅珊瑚色
+            { id: "Game developing", label: "Game developing", group: 1, color: "#e73535ff" }, // 浅紫色
+            { id: "Programming", label: "Programming", group: 1, color: "rgb(221, 160, 221)" }, // 浅紫色
 
             // 工具/软件 (Group 2 - 较小圆圈，浅色，较浅边框)
-            { id: "P5.js", label: "P5.js", group: 2, color: "rgb(255, 255, 224)" }, // 极浅黄色
-            { id: "processing", label: "processing", group: 2, color: "rgba(247, 230, 250, 1)" }, // 薰衣草淡紫色 (处理多行文本)
-            { id: "AE", label: "AE", group: 2, color: "rgba(252, 247, 201, 1)" },
-            { id: "PR", label: "PR", group: 2, color: "rgba(255, 250, 224, 1)" },
-            { id: "cap cut", label: "capcut", group: 2, color: "rgba(252, 240, 184, 1)" }, // 极浅黄色 (处理多行文本)
+            { id: "P5.js", label: "P5.js", group: 2, color: "rgba(254, 224, 255, 1)" }, // 极浅黄色
+            { id: "processing", label: "processing", group: 2, color: "rgba(247, 211, 240, 1)" }, // 薰衣草淡紫色 (处理多行文本)
+            { id: "AE", label: "AE", group: 2, color: "#7fea61ff" },
+            { id: "PR", label: "PR", group: 2, color: "#7ed37eff" },
+            { id: "cap cut", label: "capcut", group: 2, color: "#89ee7aff" }, // 极浅黄色 (处理多行文本)
             { id: "SAI", label: "SAI", group: 2, color: "rgb(255, 218, 185)" }, // 桃色
-            { id: "PS", label: "PS", group: 2, color: "rgba(251, 222, 229, 1)" },
-            { id: "UE5", label: "UE5", group: 2, color: "rgba(249, 222, 220, 1)" },
+            { id: "PS", label: "PS", group: 2, color: "rgba(181, 208, 249, 1)" },
+            { id: "UE5", label: "UE5", group: 2, color: "rgba(249, 168, 175, 1)" },
             { id: "Python", label: "Python", group: 2, color: "rgba(249, 220, 237, 1)" },
         ],
         links: [
@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const nodeStroke = (d) => d.group === 1 ? "rgb(50, 50, 50)" : "rgb(80, 80, 80)"; // 主要类别边框深，工具边框浅
     const defaultLinkStrokeWidth = "2px"; // 默认链接线宽
     const highlightedLinkStrokeWidth = "4px"; // 突出显示链接线宽
-    const highlightedLinkStrokeColor = "rgb(0,0,0)"; // 突出显示链接颜色为纯黑色
     const defaultLinkStrokeColor = "#999"; // 默认链接颜色
 
 
@@ -102,7 +101,9 @@ document.addEventListener('DOMContentLoaded', function () {
         .selectAll("line")
         .data(graphData.links)
         .enter().append("line")
-        .attr("class", "d3-graph-link");
+        .attr("class", "d3-graph-link")
+        .attr("stroke", defaultLinkStrokeColor) // <<--- 添加：设置初始默认颜色
+        .attr("stroke-width", defaultLinkStrokeWidth); // <<--- 添加：设置初始默认线宽
 
     // 绘制节点 (圆圈和文本)
     const node = svg.append("g")
@@ -190,10 +191,12 @@ document.addEventListener('DOMContentLoaded', function () {
         d.fy = null;
     }
 
-    // 鼠标悬停事件处理函数
+    // 鼠标悬停事件处理函数 (已合并并修正)
     function handleMouseOver(event, d) {
         // 将当前悬停的节点提到最前面，防止被其他元素遮挡
         d3.select(this).raise();
+
+        const hoveredNodeGroup = d.group; // 获取当前悬停节点的组别
 
         // 突出显示与当前节点连接的线条
         link.attr("stroke-width", l => {
@@ -204,10 +207,29 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
             .attr("stroke", l => {
+                // 检查这条线是否与当前悬停的节点相连
                 if (l.source.id === d.id || l.target.id === d.id) {
-                    return highlightedLinkStrokeColor; // 改变颜色为纯黑色
+                    // 找到连线的另一端节点
+                    const otherNode = (l.source.id === d.id) ? l.target : l.source;
+                    const otherNodeGroup = otherNode.group;
+
+                    if (hoveredNodeGroup === 1) {
+                        // 如果悬停的是 group 1 的节点
+                        if (otherNodeGroup === 1) {
+                            return "#303030ff"; // 连接到 group 1 → 黑色
+                        } else {
+                            return "#a9a9a9ff"; // 连接到 group 2 → 黄色 (金色)
+                        }
+                    } else {
+                        // 如果悬停的是 group 2 的节点
+                        if (otherNodeGroup === 1) {
+                            return "#a9a9a9ff"; // 连接到 group 1 → 黄色
+                        } else {
+                            return "#303030ff"; // 连接到 group 2 → 黑色 (可选，根据需求调整)
+                        }
+                    }
                 } else {
-                    return defaultLinkStrokeColor; // 保持默认
+                    return defaultLinkStrokeColor; // 不相连的线保持默认颜色
                 }
             });
     }
