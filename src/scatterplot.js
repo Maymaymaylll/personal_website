@@ -12,7 +12,7 @@
         { category: "Video & Animation", year: 2025, count: 5 },
         { category: "Game", year: 2023, count: 0 },
         { category: "Game", year: 2024, count: 2 },
-        { category: "Game", year: 2025, count: 1 }
+        { category: "Game", year: 2025, count: 2 }
     ];
 
     // 2. 设置图表尺寸和边距

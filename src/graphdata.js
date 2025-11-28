@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             { id: "PS", label: "PS", group: 2, color: "rgba(251, 222, 229, 1)" },
             { id: "UE5", label: "UE5", group: 2, color: "rgba(249, 222, 220, 1)" },
             { id: "Python", label: "Python", group: 2, color: "rgba(249, 220, 237, 1)" },
-        ]
-        ,
+        ],
         links: [
             { source: "P5.js", target: "Animation" },
             { source: "processing", target: "Animation" },
@@ -51,22 +50,35 @@ document.addEventListener('DOMContentLoaded', function () {
         ]
     };
 
-    // 获取容器元素并计算其尺寸
-    const container = d3.select("#vis-graphdata"); // 更新ID选择器
-    let containerWidth = container.node().getBoundingClientRect().width;
-    let containerHeight = container.node().getBoundingClientRect().height+50; // 额外增加高度以防止内容溢出
+    // 获取容器元素
+    const container = d3.select("#vis-graphdata");
 
-    // 定义SVG的边距
+    // 定义SVG的边距，这些边距将应用于实际绘制区域
     const margin = { top: 10, right: 10, bottom: 10, left: 10 };
-    let width = containerWidth - margin.left - margin.right;
-    let height = containerHeight - margin.top - margin.bottom;
+
+    // 辅助函数：获取当前SVG的实际尺寸和内部绘制区域尺寸
+    function getDrawingDimensions() {
+        const svgElement = container.select("svg").node();
+        // 如果SVG元素还未创建，则从容器获取尺寸
+        const currentSvgWidth = svgElement ? svgElement.getBoundingClientRect().width : container.node().getBoundingClientRect().width;
+        const currentSvgHeight = svgElement ? svgElement.getBoundingClientRect().height : container.node().getBoundingClientRect().height;
+
+        return {
+            svgWidth: currentSvgWidth,
+            svgHeight: currentSvgHeight,
+            drawingWidth: currentSvgWidth - margin.left - margin.right,
+            drawingHeight: currentSvgHeight - margin.top - margin.bottom
+        };
+    }
+
+    let { svgWidth, svgHeight, drawingWidth, drawingHeight } = getDrawingDimensions();
 
     // 创建 SVG 元素并添加到容器中
     const svg = container.append("svg")
-        .attr("viewBox", `0 0 ${containerWidth} ${containerHeight}`) // 设置 viewBox 以实现响应式
+        .attr("viewBox", `0 0 ${svgWidth} ${svgHeight}`) // 设置 viewBox 以实现响应式
         .attr("preserveAspectRatio", "xMidYMid meet") // 保持宽高比
         .append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`); // 应用边距
+        .attr("transform", `translate(${margin.left},${margin.top})`); // 应用边距到g元素
 
     // 根据节点组定义节点半径和边框颜色
     const nodeRadius = (d) => d.group === 1 ? 60 : 30; // 主要类别半径大，工具半径小
@@ -81,24 +93,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const simulation = d3.forceSimulation(graphData.nodes)
         .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(150)) // 链接力，设置链接距离
         .force("charge", d3.forceManyBody().strength(-400)) // 斥力，使节点相互排斥
-        .force("center", d3.forceCenter(width / 2, height / 2)) // 向心力，使图表居中
+        .force("center", d3.forceCenter(drawingWidth / 2, drawingHeight / 2)) // 向心力，使图表居中于绘制区域
         .force("collide", d3.forceCollide().radius(d => nodeRadius(d) + 15)); // 碰撞力，防止节点重叠，增加额外填充
 
     // 绘制链接 (线)
     const link = svg.append("g")
-        .attr("class", "d3-graph-links-group") // 新增一个组的类名
+        .attr("class", "d3-graph-links-group")
         .selectAll("line")
         .data(graphData.links)
         .enter().append("line")
-        .attr("class", "d3-graph-link"); // 更新类名
+        .attr("class", "d3-graph-link");
 
     // 绘制节点 (圆圈和文本)
     const node = svg.append("g")
-        .attr("class", "d3-graph-nodes-group") // 新增一个组的类名
+        .attr("class", "d3-graph-nodes-group")
         .selectAll("g")
         .data(graphData.nodes)
         .enter().append("g")
-        .attr("class", "d3-graph-node") // 更新类名
+        .attr("class", "d3-graph-node")
         .call(d3.drag() // 添加拖动行为
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -147,7 +159,13 @@ document.addEventListener('DOMContentLoaded', function () {
             .attr("x2", d => d.target.x)
             .attr("y2", d => d.target.y);
 
-        node.attr("transform", d => `translate(${d.x},${d.y})`);
+        node.attr("transform", d => {
+            const radius = nodeRadius(d);
+            // 边界检查：将节点中心限制在 (radius, drawingWidth - radius) 和 (radius, drawingHeight - radius) 之间
+            d.x = Math.max(radius, Math.min(drawingWidth - radius, d.x));
+            d.y = Math.max(radius, Math.min(drawingHeight - radius, d.y));
+            return `translate(${d.x},${d.y})`;
+        });
     });
 
     // 拖动开始事件处理函数
@@ -159,8 +177,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 拖动中事件处理函数
     function dragged(event, d) {
-        d.fx = event.x; // 更新固定位置
-        d.fy = event.y;
+        const radius = nodeRadius(d);
+        // 边界检查：将拖动事件的坐标限制在绘制区域内
+        d.fx = Math.max(radius, Math.min(drawingWidth - radius, event.x));
+        d.fy = Math.max(radius, Math.min(drawingHeight - radius, event.y));
     }
 
     // 拖动结束事件处理函数
@@ -202,16 +222,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 窗口大小调整事件处理函数，实现响应式
     window.addEventListener('resize', () => {
-        containerWidth = container.node().getBoundingClientRect().width;
-        containerHeight = container.node().getBoundingClientRect().height;
+        // 重新获取最新的尺寸
+        ({ svgWidth, svgHeight, drawingWidth, drawingHeight } = getDrawingDimensions());
 
-        width = containerWidth - margin.left - margin.right;
-        height = containerHeight - margin.top - margin.bottom;
-
-        svg.attr("viewBox", `0 0 ${containerWidth} ${containerHeight}`); // 更新 viewBox
+        // 更新SVG的viewBox
+        container.select("svg").attr("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
 
         // 更新力模拟器的中心点
-        simulation.force("center", d3.forceCenter(width / 2, height / 2));
+        simulation.force("center", d3.forceCenter(drawingWidth / 2, drawingHeight / 2));
         simulation.alpha(0.3).restart(); // 重新启动模拟器以适应新尺寸
     });
 
