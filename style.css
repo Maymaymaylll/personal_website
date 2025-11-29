@@ -763,7 +763,6 @@ svg {
 
 #close-large-image:hover {
     color: #ff4d4d;
-    /* 鼠标悬停时变红 */
 }
 
 .sub_content3 {
@@ -1197,25 +1196,19 @@ h4 {
 
 
 section#vis-graphdata {
-    /* 修改了ID名称以更通用 */
     width: 100%;
     max-width: 960px;
-    /* 最大宽度，适应大屏幕 */
     height: 650px;
-    /* 固定高度，确保SVG有足够的空间 */
     margin: 0 auto;
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    /* 柔和的阴影 */
     padding: 20px;
     box-sizing: border-box;
     display: flex;
-    /* 使用 flexbox 居中 SVG */
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* 防止内容溢出 */
 }
 
 /* SVG 样式 - 限定在容器ID内，避免全局冲突 */
@@ -1233,9 +1226,7 @@ section#vis-graphdata {
 
 .d3-graph-node text {
     text-anchor: middle;
-    /* 文本居中 */
     fill: #333;
-    /* 文本颜色 */
     pointer-events: none;
     font-weight: bold;
     /* 文本不捕获鼠标事件，让事件穿透到圆圈 */
@@ -1243,106 +1234,22 @@ section#vis-graphdata {
 
 .d3-graph-link {
     stroke-linecap: round;
-    /* 线条末端样式 */
 }
 
 
-/* 链接标签文本样式 */
+
 .link-label text {
     font-family: sans-serif;
     font-size: 10px;
     fill: #555;
     text-anchor: middle;
-    /* 文本居中对齐 */
     pointer-events: none;
-    /* 确保文本不会干扰拖拽 */
     text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), -1px -1px 0 rgba(255, 255, 255, 0.8),
         1px -1px 0 rgba(255, 255, 255, 0.8), -1px 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-#vis-matrix {
-    margin: 20px auto;
-    max-width: fit-content;
-    /* 让容器根据内容调整宽度 */
-    overflow-x: auto;
-    /* 当表格过宽时，允许水平滚动 */
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-}
 
-/* 表格通用样式 */
-table {
-    border-collapse: collapse;
-    /* 合并边框 */
-    width: auto;
-    /* 宽度自适应内容 */
-    margin: 0;
-    /* 移除默认外边距 */
-}
 
-/* 表头和数据单元格样式 */
-th,
-td {
-    border: 1px solid #dee2e6;
-    /* 边框颜色 */
-    padding: 10px 15px;
-    /* 内边距 */
-    text-align: center;
-    min-width: 70px;
-    /* 确保单元格有最小宽度 */
-    white-space: nowrap;
-    /* 防止文本换行 */
-    font-size: 0.95em;
-}
-
-/* 表头单元格的默认样式 */
-th {
-    background-color: #e9ecef;
-    font-weight: bold;
-    color: #495057;
-}
-
-/* 值为 1 的数据单元格高亮样式 */
-.highlight-one {
-    background-color: #ffeb3b;
-    /* 鲜黄色 */
-    font-weight: bold;
-    color: #343a40;
-}
-
-/* 响应式设计：针对小屏幕设备 */
-@media screen and (max-width: 768px) {
-    body {
-        margin: 15px;
-    }
-
-    .ti {
-        font-size: 1.8em;
-    }
-
-    #vis-matrix {
-        padding: 10px;
-    }
-
-    th,
-    td {
-        padding: 8px 10px;
-        min-width: 50px;
-        font-size: 0.85em;
-    }
-}
-
-@media screen and (max-width: 480px) {
-
-    th,
-    td {
-        padding: 6px 8px;
-        min-width: 40px;
-        font-size: 0.8em;
-    }
-}
 
 .sub_title {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -1376,10 +1283,8 @@ h6 {
 #timeline-chart {
     position: relative;
     overflow: visible;
-    /* 允许内容超出SVG边界（如果需要） */
     width: 100%;
     max-height: fit-content;
-    /* 确保容器宽度为100%以支持响应式 */
 }
 
 .timeline-line {
@@ -1399,47 +1304,33 @@ h6 {
     font-size: 1.5em;
     fill: #2c3e50;
     text-anchor: middle;
-    /* For SVG text, centers it on its x-coordinate */
 }
 
-/* New CSS classes for HTML content inside foreignObject */
+
 .timeline-company-role-content,
 .timeline-description-content {
     font-size: 1.2em;
     color: #555;
     text-align: justify;
-    /* Centers the text within the div */
     line-height: 1.2em;
-    /* Adjust line height for better readability */
     word-wrap: break-word;
-    /* Allows long words to break */
     overflow-wrap: break-word;
-    /* Modern equivalent of word-wrap */
-    /* Ensure the div takes up 100% width of its foreignObject parent */
     width: 100%;
     height: 100%;
-    /* Important for foreignObject to render content */
     display: flex;
-    /* Use flexbox to vertically center if needed, or just for layout */
     align-items: center;
-    /* Vertically center content if foreignObject height > content height */
     justify-content: center;
-    /* Horizontally center content */
     box-sizing: border-box;
-    /* Include padding/border in width/height */
     padding: 10px;
-    /* Small padding inside the div */
 }
 
 .timeline-company-role-content {
     font-weight: bold;
-    /* Keep company role bold */
 }
 
 .timeline-image {
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* Ensure images are not too large on small screens */
     max-width: 100%;
     height: auto;
 }
@@ -1472,127 +1363,7 @@ h7 {
     color: #333;
 }
 
-#vis-dotmap {
-    width: 100%;
-    max-width: 960px;
-    /* 您可以根据需要调整最大宽度 */
-    margin: 20px auto;
-    /* 居中显示 */
-    position: relative;
-    /* 如果需要对图例进行更复杂的定位 */
-}
 
-/* 使SVG本身响应式，保持宽高比 */
-#vis-dotmap svg {
-    display: block;
-    /* 移除SVG下方可能出现的额外空间 */
-    width: 100%;
-    height: auto;
-    /* 保持宽高比 */
-}
-
-/* 国家路径样式 */
-.country {
-    stroke: #333;
-    /* 国家边框颜色 */
-    stroke-width: 0.5px;
-    /* 国家边框宽度 */
-}
-
-/* 圆点样式 */
-.dot {
-    opacity: 0.7;
-    /* 圆点透明度 */
-}
-
-/* 图例背景框样式 */
-.legend-box {
-    fill: white;
-    /* 白色背景 */
-    stroke: black;
-    /* 黑色边框 */
-    stroke-width: 1px;
-    /* 边框宽度 */
-}
-
-/* 图例文本样式 */
-.legend-text {
-    font-family: sans-serif;
-    font-size: 12px;
-    fill: #333;
-}
-
-#vis-symbolmap {
-    width: 95%;
-    /* 容器宽度 */
-    max-width: 1000px;
-    /* 最大宽度限制 */
-    margin: 30px auto;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    background-color: #ffffff;
-    text-align: center;
-    box-sizing: border-box;
-    /* 确保 padding 不会增加总宽度 */
-}
-
-#vis-symbolmap h2 {
-    color: #2c3e50;
-    margin-bottom: 25px;
-    font-size: 1.8em;
-    font-weight: 600;
-}
-
-/* SVG 容器样式 */
-#vis-symbolmap svg {
-    display: block;
-    /* 移除底部空白 */
-    margin: 0 auto;
-    background-color: #eaf4f7;
-    /* 地图背景色 */
-    border-radius: 5px;
-}
-
-/* 国家/地区样式 */
-.scountry {
-    fill: #d3dce0;
-    /* 国家填充色 */
-    stroke: #aeb6bf;
-    /* 国家边框色 */
-    stroke-width: 0.3px;
-}
-
-/* 访客点样式 */
-.visitor-point {
-    fill: #ff6347;
-    /* 访客点默认颜色 (番茄红) */
-    opacity: 0.7;
-    /* 平滑过渡效果，用于点出现和消失时的动画 */
-    transition: opacity 0.8s ease-out, r 0.5s ease-out, fill 0.3s ease-in-out;
-}
-
-/* 新访客点样式，短暂高亮 */
-.visitor-point.new {
-    fill: #28a745;
-    /* 新访客点颜色 (绿色) */
-    r: 7px;
-    /* 新访客点半径稍大 */
-    opacity: 1;
-    box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
-    /* 绿色光晕 */
-}
-
-/* 鼠标悬停在访客点上的样式 */
-.visitor-point:hover {
-    fill: #007bff;
-    /* 悬停颜色 (蓝色) */
-    opacity: 1;
-    cursor: pointer;
-    r: 6px;
-    /* 悬停时半径稍大 */
-}
 
 .container5 {
     display: flex;
