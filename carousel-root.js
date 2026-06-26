@@ -2,8 +2,8 @@
     const imageData = [
         { src: 'lsm.jpg', alt: 'LSM Painting' },
         { src: '牙牙乐1.jpg', alt: 'Yaya Le' },
+        { src: '三井寿生日（终）.png', alt: 'Rukawa Kaede' },
         { src: '亚比怜怜.jpg', alt: 'Yabi Lian Lian' },
-        { src: 'rukawa.jpg', alt: 'Rukawa Kaede' },
         { src: 'Autumn.jpg', alt: 'Boardgame Night' },
         { src: 'mill.jpg', alt: 'Windmill Scene' },
         { src: '小及生日.jpg', alt: 'oigawa' },
