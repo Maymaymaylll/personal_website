@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             { id: "PS", label: "PS", group: 2, color: "rgba(181, 208, 249, 1)" },
             { id: "UE5", label: "UE5", group: 2, color: "rgba(249, 168, 175, 1)" },
             { id: "Python", label: "Python", group: 2, color: "rgba(249, 220, 237, 1)" },
+            { id: "Maya", label: "Maya", group: 2, color: "rgb(232, 214, 224)" },
         ],
         links: [
             { source: "P5.js", target: "Animation" },
@@ -46,7 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
             { source: "Game developing", target: "UE5" },
             { source: "Game developing", target: "Programming" },
             { source: "P5.js", target: "Programming" },
-            { source: "Python", target: "Programming" }
+            { source: "Maya", target: "Programming" },
+            { source: "Maya", target: "Animation" },
+            { source: "Python", target: "Programming" },
         ]
     };
 
